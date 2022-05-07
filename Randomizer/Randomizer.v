@@ -23,28 +23,6 @@ end
 endmodule
 
 
-module tb();
-reg clk,rst,enable,load;
-reg DataIn;
-reg [14:0]Seed;
-wire  DataOut;
-LinearFeedbackShiftRegister obj (clk, rst, enable, load,DataIn,Seed,DataOut);
-
-always begin
-clk=~clk; #5;
-end
-
-initial begin
-clk=0;rst=0;enable=1;load=0;DataIn=0;Seed=4;
-#10 DataIn=1;
-#10 DataIn=0;
-#10 DataIn=1;
-#10 DataIn=0;
-
-
-end
-endmodule
-
 /************************************************************************/
 module randomizer_tb();
 
